@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Main Page</title>
+</head>
+<body>
+<div id="main-container" class="container light">
+    <nav>
+        <img src="img/logo.svg" alt="Logo" class="logo">
+        <div class="nav-links">
+            <a href="index.html" id="main-page">Main Page</a>
+            <a href="contact.html" id="contact">Contact</a>
+            <a href="product_listing.html"  id="list">List of Products</a>
+        </div>
+        <div class="change-container">
+            <button id="change-theme" class="change">Dark Theme</button>
+            <div id="change-lang" class="change dropdown">
+                <p>EN</p>
+                <div class="dropdown-content">
+                    <button id="lang-en">EN</button>
+                    <button id="lang-sk">SK</button>
+                    <button id="lang-de">DE</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div>
+            <h1>StoPruducts</h1>
+            <!--LANG EN-->
+            <h2 lang="en" class="current-lang">Hundreds of prouducts that everyone loves!</h2>
+            <!--LANG SK-->
+            <h2 lang="sk" class="hidden-lang">Stovky produktov ktoré každý miluje!</h2>
+            <!--LANG DE-->
+            <h2 lang="de" class="hidden-lang">Hunderte von Produkten, die jeder liebt!</h2>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+        <img src="img/logo.svg" alt="Logo" class="logo">
+        <div>
+            <p id="footer-p1">Products everyone loves</p>
+            <a href="product_listing.html" id="footer-p2">Our products</a>
+            <a href="product.html" id="footer-p3">Most popular product</a>
+            <p>&copy; Copyright 2026 Stowasserova</p>
+        </div>
+        <div class="line-between"></div>
+        <div>
+            <p id="footer-p4">We are here for you</p>
+            <a href="contact.html" id="footer-p5">Our Contact</a>
+            <a href="form.html" id="footer-p6">Complaint</a>
+        </div>
+    </footer>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

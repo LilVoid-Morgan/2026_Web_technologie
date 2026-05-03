@@ -1,0 +1,284 @@
+.light {
+    --primary-color: #9696ff;
+    --secondary-color: #969696;
+    --text-color: black;
+    --secondary-text-color: white;
+    --background-color: #96ffff;
+    --select-color: #ff9696;
+    --form-color: #96ff96;
+    --form-input-color: white;
+    --error-color: #ff0000;
+}
+.dark {
+    --primary-color: #323296;
+    --secondary-color: #323232;
+    --text-color: white;
+    --secondary-text-color: black;
+    --background-color: #329696;
+    --select-color: #963296;
+    --form-color: #969632;
+    --form-input-color: darkgray;
+    --error-color: #960000;
+}
+.hidden-lang {
+    display: none !important; /* Jedina situacia kde je pouzite !important lebo toto musi prepisat vsetky ostatne styly */
+}
+.current-lang {
+
+}
+label.invalid {
+    color: var(--error-color);
+}
+input.invalid {
+    border: 2px solid var(--error-color);
+}
+select.invalid {
+    border: 2px solid var(--error-color);
+}
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
+.container {
+    display: grid;
+    grid-template-areas: "nav nav"
+                        "header header"
+                        "main main"
+                        "footer footer";
+    background-color: var(--background-color);
+    width: 100%;
+    min-height: 100vh;
+}
+nav {
+    grid-area: nav;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    padding: 0 5vw 0 10vw;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+}
+nav img {
+    padding: 0 5vw;
+}
+.logo {
+    width: 100px;
+}
+.nav-links {
+    height: 7rem;
+    display: flex;
+    align-items: center;
+}
+.nav-links a {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 3rem 3vw;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+.nav-links a:hover {
+    background-image:
+            linear-gradient(
+                    to top,
+                    var(--select-color),
+                    rgba(0, 0, 0, 0)
+            );
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    width: 2rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: initial;
+}
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+.dropdown-content button {
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.dropdown-content button:hover {
+    font-weight: bold;
+}
+.change-container {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    height: 100%;
+    padding-top: 2rem;
+}
+.change {
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+.change:hover {
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+#change-theme {
+    width: 90px;
+    border: none;
+    color: var(--text-color);
+}
+#change-lang {
+    width: 50px;
+}
+#change-lang p {
+    text-align: center;
+}
+.change:hover {
+    background-color: var(--select-color);
+}
+header {
+    grid-area: header;
+    height: 20rem;
+    background-color: var(--primary-color);
+    text-align: center;
+}
+h1 {
+    font-size: 4rem;
+    font-family: Montserrat, Helvetica, Arial, serif ;
+    color: var(--text-color);
+}
+h2 {
+    font-family: Montserrat, Helvetica, Arial, serif ;
+    color: var(--text-color);
+}
+main {
+    min-height: 100vh;
+    grid-area: main;
+    background-color: var(--secondary-color);
+}
+p {
+    color: var(--text-color);
+}
+footer {
+    grid-area: footer;
+    height: 15rem;
+    display: flex;
+    padding: 0 5vw 0 5vw;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    background-color: var(--primary-color);
+    font-size: 1rem;
+}
+footer div:nth-child(2) {
+    width: 35vw;
+    text-align: right;
+}
+footer div:nth-child(4) {
+    width: 35vw;
+    text-align: left;
+}
+footer div a {
+    color: var(--secondary-text-color);
+    display: block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+footer div p {
+    color: var(--secondary-text-color);
+    display: block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+.line-between {
+    border: 1px solid;
+    border-image:
+            linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0),
+                    var(--secondary-text-color),
+                    rgba(0, 0, 0, 0)
+            ) 1 100%;
+    height: 70%;
+    width: 0;
+}
+
+
+.complaint-form {
+    color: var(--text-color);
+    margin: 5vh 20vw;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: var(--form-color);
+}
+.complaint-form:hover {
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+fieldset {
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+}
+label {
+    text-align: right;
+    vertical-align: center;
+}
+input {
+    height: 1.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    background-color: var(--form-input-color);
+    font-size: 1rem;
+}
+fieldset div {
+    text-align: left;
+}
+textarea {
+    height: 10rem;
+    border-radius: 0.2rem;
+    border: none;
+    background-color: var(--form-input-color);
+    font-size: 1rem;
+}
+#image {
+    background-color: transparent;
+}
+select {
+    height: 1.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    background-color: var(--form-input-color);
+    font-size: 1rem;
+}
+#complaint-submit {
+    background-color: var(--form-input-color);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    color: var(--text-color);
+}
+#complaint-submit:hover {
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+    background-color: var(--select-color);
+}
+
+@media (max-width: 800px) {
+    * {
+        --primary-color: black;
+        --secondary-color: black;
+        --text-color: white;
+        --background-color: black;
+        --select-color: black;
+    }
+}
