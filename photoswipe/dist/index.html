@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="module">
+  import Lightbox from './photoswipe-lightbox.esm.js';
+  const lightbox = new Lightbox({
+    gallery: '#my-gallery',
+    children: 'a',
+    pswpModule: () => import('./photoswipe.esm.js')
+  });
+  lightbox.init();
+</script>
+</body>
+</html>
