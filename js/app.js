@@ -26,6 +26,8 @@
 
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 const themeBTN = document.getElementById("change-theme");
+const form = document.getElementById("complaint-form");
+const container = document.getElementById("main-container");
 let theme;
 if (systemTheme.matches) {
     console.log("Detected Dark Theme");
@@ -102,12 +104,13 @@ deBTN.addEventListener("click",  () => {
     setLangTextDE();
 });
 
-const submit = document.getElementById("complaint-submit");
-if (submit) {
+if (form) {
+    const submit = document.getElementById("complaint-submit");
     submit.addEventListener("click", (event) => {
         document.querySelectorAll(".invalid").forEach(el => {
             el.classList.remove("invalid");
         })
+        document.getElementById("warning").classList.add("invisible");
         event.preventDefault();
         let isValid = true;
         const name = document.getElementById("name");
@@ -191,31 +194,63 @@ if (submit) {
             console.log("Preferred action is not valid");
         }
         if (isValid) {
-            const form = document.getElementById("complaint-form");
             form.submit();
             console.log("Form successfully sent.");
         }
+        else {
+            document.getElementById("warning").classList.add("invalid");
+            document.getElementById("warning").classList.remove("invisible");
+        }
     });
 }
-
+const aboutUs = document.getElementById("about-toggle");
+const aboutWindow = document.getElementById("about");
+const closeBTN = document.getElementById("close-btn");
+if (aboutUs) {
+    if (aboutUs) {
+        aboutUs.addEventListener("click", () => {
+            openAbout();
+        })
+    }
+    aboutWindow.addEventListener("click", () => {
+        closeAbout();
+    });
+    closeBTN.addEventListener("click", () => {
+        closeAbout();
+    });
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeAbout();
+        }
+    })
+}
 
 //FUNCTIONS
+
+function openAbout() {
+    aboutWindow.style.display = "block";
+    const blurBox = document.getElementById("blur-box");
+    blurBox.classList.add("blur");
+}
+
+function closeAbout() {
+    aboutWindow.style.display = "none";
+    const blurBox = document.getElementById("blur-box");
+    blurBox.classList.remove("blur");
+}
 
 function fixedMenu() {
     //
 }
 
 function changeTheme() {
-    const container = document.getElementById("main-container");
     const themeBTN = document.getElementById("change-theme");
     if (container.classList.contains("light")) {
-        const container = document.getElementById("main-container");
         container.classList.replace("light", "dark");
         themeBTN.textContent = "Light Theme";
         localStorage.setItem("theme", "dark");
     }
     else {
-        const container = document.getElementById("main-container");
         container.classList.replace("dark", "light");
         themeBTN.textContent = "Dark Theme";
         localStorage.setItem("theme", "light");
@@ -250,13 +285,13 @@ function setLangTextEN() {
     document.getElementById("footer-p4").textContent = "We are here for you";
     document.getElementById("footer-p5").textContent = "Our Contact";
     document.getElementById("footer-p6").textContent = "Complaint";
-    const form = document.getElementById("complaint-form");
     if (form) {
+        document.getElementById("complaint-h2").textContent = "Submit a Complaint";
         document.getElementById("title1").textContent = "Personal Details";
         document.getElementById("title2").textContent = "Address";
         document.getElementById("title3").textContent = "Complaint Details";
         document.getElementById("name-label").textContent = "Name *";
-        document.getElementById("email-label").textContent = "Email *";
+        document.getElementById("email-label").textContent = "Contact Email *";
         document.getElementById("street-label").textContent = "Street *";
         document.getElementById("house-number-label").textContent = "House Number";
         document.getElementById("city-label").textContent = "City *";
@@ -286,6 +321,14 @@ function setLangTextEN() {
         document.getElementById("problem4").textContent = "Stopped Working";
         document.getElementById("problem5").textContent = "A Part Broke";
         document.getElementById("problem6").textContent = "Other";
+        document.getElementById("image-label").textContent = "Image";
+        document.getElementById("action").textContent = "Preferred Course of Action *";
+        document.getElementById("return-label").textContent = "Return";
+        document.getElementById("replace-label").textContent = "Replace";
+        document.getElementById("refund-label").textContent = "Refund";
+        document.getElementById("comment-label").textContent = "Additional Comments";
+        document.getElementById("complaint-submit").textContent = "Submit Complaint";
+        document.getElementById("warning").textContent = "Highlighted missing required fields!";
     }
 }
 function setLangTextSK() {
@@ -304,8 +347,53 @@ function setLangTextSK() {
     document.getElementById("footer-p4").textContent = "Sme tu pre vás";
     document.getElementById("footer-p5").textContent = "Náš kontakt";
     document.getElementById("footer-p6").textContent = "Reklamácia";
-    const form = document.getElementById("complaint-form");
-}function setLangTextDE() {
+    if (form) {
+        document.getElementById("complaint-h2").textContent = "Podaj Reklamáciu";
+        document.getElementById("title1").textContent = "Osobné Detaily";
+        document.getElementById("title2").textContent = "Adresa";
+        document.getElementById("title3").textContent = "Reklamácia";
+        document.getElementById("name-label").textContent = "Meno *";
+        document.getElementById("email-label").textContent = "Email *";
+        document.getElementById("street-label").textContent = "Ulica *";
+        document.getElementById("house-number-label").textContent = "Číslo Domu";
+        document.getElementById("city-label").textContent = "Mesto *";
+        document.getElementById("county-label").textContent = "Okres";
+        document.getElementById("country-label").textContent = "Štát *";
+        document.getElementById("product-label").textContent = "Vyber Typ Produktu";
+        document.getElementById("product0").textContent = "--Vyber produkt--";
+        document.getElementById("product1").textContent = "Produkt 1";
+        document.getElementById("product2").textContent = "Produkt 2";
+        document.getElementById("product3").textContent = "Produkt 3";
+        document.getElementById("product4").textContent = "Produkt 4";
+        document.getElementById("product5").textContent = "Produkt 5";
+        document.getElementById("product6").textContent = "Produkt 6";
+        document.getElementById("product7").textContent = "Produkt 7";
+        document.getElementById("product8").textContent = "Produkt 8";
+        document.getElementById("product9").textContent = "Produkt 9";
+        document.getElementById("product10").textContent = "Produkt 10";
+        document.getElementById("order-number-label").textContent = "Číslo Objednávky *";
+        document.getElementById("problem-label").textContent = "Nájdený Problém *";
+        document.getElementById("problem-label1").setAttribute("value", "Pri Dovážke");
+        document.getElementById("problem-label2").setAttribute("value", "V Rámci Záruky");
+        document.getElementById("problem-label3").setAttribute("value", "Iné");
+        document.getElementById("problem0").textContent = "--Vybera problém--";
+        document.getElementById("problem1").textContent = "Nedorazil";
+        document.getElementById("problem2").textContent = "Dorazil Neúplný";
+        document.getElementById("problem3").textContent = "Dorazil Pokazenýn";
+        document.getElementById("problem4").textContent = "Prestal Fungovať";
+        document.getElementById("problem5").textContent = "Súčiatka sa Pokazila";
+        document.getElementById("problem6").textContent = "Iné";
+        document.getElementById("image-label").textContent = "Obrázok";
+        document.getElementById("action").textContent = "Preferovaný postup *";
+        document.getElementById("return-label").textContent = "Vrátiť";
+        document.getElementById("replace-label").textContent = "Vymeniť";
+        document.getElementById("refund-label").textContent = "Uhradiť";
+        document.getElementById("comment-label").textContent = "Ďalšie Komentáre";
+        document.getElementById("complaint-submit").textContent = "Podať Reklamáciu";
+        document.getElementById("warning").textContent = "Zvýraznenili sa chýbajúce povinné polia!";
+    }
+}
+function setLangTextDE() {
     document.getElementById("main-page").textContent = "Die Startseite";
     document.getElementById("contact").textContent = "Der Kontakt";
     document.getElementById("list").textContent = "Die Produktliste";
@@ -321,5 +409,49 @@ function setLangTextSK() {
     document.getElementById("footer-p4").textContent = "Wir sind für Sie da";
     document.getElementById("footer-p5").textContent = "Unser Kontakt";
     document.getElementById("footer-p6").textContent = "Beschwerde";
-    const form = document.getElementById("complaint-form");
+    if (form) {
+        document.getElementById("complaint-h2").textContent = "Einreicht eine Beschwerde";
+        document.getElementById("title1").textContent = "Persönliche Daten";
+        document.getElementById("title2").textContent = "Adresse";
+        document.getElementById("title3").textContent = "Beschwerdedetails";
+        document.getElementById("name-label").textContent = "Name *";
+        document.getElementById("email-label").textContent = "Kontakt-E-Mail *";
+        document.getElementById("street-label").textContent = "die Straße *";
+        document.getElementById("house-number-label").textContent = "das Hausnummer";
+        document.getElementById("city-label").textContent = "die Stadt *";
+        document.getElementById("county-label").textContent = "der Landkreis";
+        document.getElementById("country-label").textContent = "das Land *";
+        document.getElementById("product-label").textContent = "Wählen Sie einen Produkttyp aus";
+        document.getElementById("product0").textContent = "--Wählen Sie eine Ware aus--";
+        document.getElementById("product1").textContent = "die Ware 1";
+        document.getElementById("product2").textContent = "die Ware 2";
+        document.getElementById("product3").textContent = "die Ware 3";
+        document.getElementById("product4").textContent = "die Ware 4";
+        document.getElementById("product5").textContent = "die Ware 5";
+        document.getElementById("product6").textContent = "die Ware 6";
+        document.getElementById("product7").textContent = "die Ware 7";
+        document.getElementById("product8").textContent = "die Ware 8";
+        document.getElementById("product9").textContent = "die Ware 9";
+        document.getElementById("product10").textContent = "die Ware 10";
+        document.getElementById("order-number-label").textContent = "Bestellnummer *";
+        document.getElementById("problem-label").textContent = "Aufgetretene Problem *";
+        document.getElementById("problem-label1").setAttribute("value", "bei Ankunft");
+        document.getElementById("problem-label2").setAttribute("value", "Innerhalb der Garantie");
+        document.getElementById("problem-label3").setAttribute("value", "Andere");
+        document.getElementById("problem0").textContent = "--Wählen Sie ein Problem aus--";
+        document.getElementById("problem1").textContent = "Ist nie angekommen";
+        document.getElementById("problem2").textContent = "Unvollständig angekommen";
+        document.getElementById("problem3").textContent = "Unvollständig kaputt";
+        document.getElementById("problem4").textContent = "Funktioniert nicht mehr";
+        document.getElementById("problem5").textContent = "Ein Teil ist kaputt";
+        document.getElementById("problem6").textContent = "Andere";
+        document.getElementById("image-label").textContent = "Bild";
+        document.getElementById("action").textContent = "Bevorzugte Vorgehensweise *";
+        document.getElementById("return-label").textContent = "Zurückkehren";
+        document.getElementById("replace-label").textContent = "Ersetzen";
+        document.getElementById("refund-label").textContent = "Erstattung";
+        document.getElementById("comment-label").textContent = "Weitere Kommentare";
+        document.getElementById("complaint-submit").textContent = "Beschwerde einreichen";
+        document.getElementById("warning").textContent = "Fehlende Pflichtfelder wurden hervorgehoben!";
+    }
 }

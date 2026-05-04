@@ -4,59 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
     <title>Main Page</title>
 </head>
-<body>
-<div id="main-container" class="container light">
-    <nav>
-        <img src="img/logo.svg" alt="Logo" class="logo">
-        <div class="nav-links">
-            <a href="index.html" id="main-page">Main Page</a>
-            <a id="contact">Contact</a>
-            <a href="product_listing.html"  id="list">List of Products</a>
+<body id="top">
+    <div id="main-container" class="container light">
+        <div id="about">
+            <h3>About StoProducts</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis mauris porttitor nisl convallis dapibus. Morbi commodo sem eget iaculis consectetur. Pellentesque laoreet vitae metus eu auctor. Morbi auctor orci nulla. Phasellus fermentum mollis eros a bibendum. Sed venenatis rutrum molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse tempor, urna eu commodo vestibulum, nunc mauris sollicitudin magna, quis hendrerit nulla felis a arcu. Aliquam eu orci dictum urna finibus porta id at odio. Fusce eget tristique ipsum, nec tempus risus. Quisque sed ex ut purus fringilla pulvinar eu a urna. Vivamus id sagittis dolor. Pellentesque ultricies dui eu orci pulvinar fermentum. Vivamus malesuada ac elit laoreet sodales. </p>
+            <p>Nulla at massa placerat, egestas diam sed, molestie sem. Morbi egestas, magna ut imperdiet iaculis, magna eros molestie quam, ac tempor lectus magna nec augue. Vestibulum suscipit elementum laoreet. Duis aliquet lectus et felis mollis tristique. Vivamus dui odio, blandit ac tellus at, hendrerit scelerisque libero. Phasellus id venenatis dui. Etiam id lobortis ex, lobortis iaculis arcu. Donec convallis dignissim orci, ac finibus mauris laoreet a. Fusce nec ex id arcu ultricies semper eget in orci. Fusce auctor bibendum neque sagittis lacinia. Quisque facilisis ac nisi quis blandit. Phasellus eget sem ac lorem faucibus efficitur et in tortor. Quisque dui ex, elementum quis nisi vehicula, blandit auctor turpis. Fusce sed tellus ac tortor congue tincidunt nec id mauris. </p>
+            <p>Curabitur justo odio, ornare et auctor et, congue et justo. Sed sed felis non turpis fringilla lobortis. Aliquam interdum eget risus id volutpat. In porta sem quis nibh pellentesque, at iaculis sapien euismod. Suspendisse vel nunc ullamcorper, vehicula tellus sit amet, consequat erat. Vivamus eleifend gravida lacus sit amet vehicula. Ut in dui purus. Nulla dignissim, eros ut sagittis elementum, lectus eros volutpat turpis, iaculis mollis leo leo id massa. Proin dapibus a velit quis semper. Ut sit amet dui non metus lobortis pharetra vitae non ex. Pellentesque tristique commodo eleifend. Aliquam rutrum massa eu maximus pulvinar. In ac dapibus neque. Nam ac feugiat orci. Nullam consectetur sed diam non finibus. </p>
+            <button id="close-btn" class="close-btn">×</button>
         </div>
-        <div class="change-container">
-            <button id="change-theme" class="change">Dark Theme</button>
-            <div id="change-lang" class="change dropdown">
-                <p>EN</p>
-                <div class="dropdown-content">
-                    <button id="lang-en">EN</button>
-                    <button id="lang-sk">SK</button>
-                    <button id="lang-de">DE</button>
+        <div id="blur-box">
+            <nav>
+                <img src="img/logo.svg" alt="Logo" class="logo">
+                <div class="nav-links">
+                    <a href="index.html" id="main-page">Main Page</a>
+                    <a id="contact">Contact</a>
+                    <a href="product_listing.html"  id="list">List of Products</a>
                 </div>
-            </div>
+                <div class="change-container">
+                    <button id="change-theme" class="change">Dark Theme</button>
+                    <div id="change-lang" class="change dropdown">
+                        <p>EN</p>
+                        <div class="dropdown-content">
+                            <button id="lang-en">EN</button>
+                            <button id="lang-sk">SK</button>
+                            <button id="lang-de">DE</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <header>
+                <div>
+                    <h1>StoPruducts</h1>
+                    <!--LANG EN-->
+                    <h2 lang="en" class="current-lang">Hundreds of prouducts that everyone loves!</h2>
+                    <!--LANG SK-->
+                    <h2 lang="sk" class="hidden-lang">Stovky produktov ktoré každý miluje!</h2>
+                    <!--LANG DE-->
+                    <h2 lang="de" class="hidden-lang">Hunderte von Produkten, die jeder liebt!</h2>
+                </div>
+            </header>
+            <main>
+                <div class="contact sunken">
+                    <div>
+                        <h2>Contact Us</h2>
+                        <h3>Any questions or remarks? Just write us a message!</h3>
+                    </div>
+                    <div class="profile">
+                        <img src="img/person1.png" alt="Person 1">
+                        <h3 id="person1">Person 1</h3>
+                        <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum pulvinar vulputate. Proin non mollis tellus, at ultricies odio. Proin semper arcu vitae quam vehicula venenatis. Pellentesque in enim ultrices, mattis lectus nec, ullamcorper diam. Suspendisse congue molestie libero ac scelerisque. Nunc quis aliquet metus. Pellentesque felis dui, pharetra ac volutpat vel, semper non justo. Cras a eros sed diam sagittis consectetur. Nulla vitae egestas est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur consectetur vitae augue in ullamcorper. Curabitur iaculis cursus ante non ultrices.</p>
+                        <div class="dropdown contact-me">
+                            <p>Contact Me!</p>
+                            <div class="dropdown-content">
+                                <p>Email: person1@dummymail.com</p>
+                                <p>Phone: 0999 000 123</p>
+                                <p>LinkedIn: @Person1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile">
+                        <img src="img/person2.png" alt="Person 2">
+                        <h3 id="person2">Person 2</h3>
+                        <p class="info">Nam leo erat, rhoncus quis turpis in, finibus dictum ex. Duis sodales tincidunt eros, vitae ultrices urna ullamcorper in. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam a pellentesque arcu. Suspendisse nec efficitur justo, non congue justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. In dapibus quam quam, quis gravida felis tristique non. </p>
+                        <div class="dropdown contact-me">
+                            <p>Contact Me!</p>
+                            <div class="dropdown-content">
+                                <p>Email: person2@dummymail.com</p>
+                                <p>Phone: 0999 000 123</p>
+                                <p>LinkedIn: @Person2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile">
+                        <img src="img/person3.png" alt="Person 3">
+                        <h3 id="person3">Person 3</h3>
+                        <p class="info">Maecenas ultricies metus nec interdum condimentum. Nam lacinia arcu sit amet lorem ornare finibus. Morbi ac feugiat nisi. Morbi porttitor blandit dolor posuere maximus. Ut eros ante, luctus sit amet tortor at, mattis pharetra dui. Ut nibh neque, porta sit amet efficitur eget, placerat vel sapien. Integer nec ex imperdiet, porta arcu a, vehicula sem. Donec nunc urna, venenatis non auctor vitae, dignissim vel turpis. Donec auctor tortor non augue aliquet blandit. Nam in volutpat nibh. Proin id purus eros. Duis non est ipsum. Fusce sed mi dui. Etiam blandit tortor quis aliquam tempor. </p>
+                        <div class="dropdown contact-me">
+                            <p>Contact Me!</p>
+                            <div class="dropdown-content">
+                                <p>Email: person3@dummymail.com</p>
+                                <p>Phone: 0999 000 123</p>
+                                <p>LinkedIn: @Person3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-options-icons">
+                    </div>
+                    <div class="contact-options">
+                        <div>
+                            <a id="about-toggle">
+                                <img src="img/icon-about.png" alt="About Us">
+                            </a>
+                            <h3>About StoPruducts</h3>
+                            <p>Learn a bit more about our business.</p>
+                        </div>
+                        <div>
+                            <a href="mailto:emma.stowasser@email.com">
+                                <img src="img/icon-email.png" alt="Contact Us">
+                            </a>
+                            <h3>Get in Touch!</h3>
+                            <p>Email: get-in-touch@email.com</p>
+                            <p>Phone (landline): 0999 123 456</p>
+                            <p>Phone Support: 0950 111 789</p>
+                        </div>
+                        <div>
+                            <a href="form.html" target="_blank">
+                                <img src="img/icon-form.png" alt="Lodge a Complaint">
+                            </a>
+                            <h3>Lodge a Complaint</h3>
+                            <p>Have you experienced issues with your ordered or delivered product? Let us know so we can sort it!</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <img src="img/logo.svg" alt="Logo" class="logo">
+                <div>
+                    <p id="footer-p1">Products everyone loves</p>
+                    <a href="product_listing.html" id="footer-p2">Our products</a>
+                    <a href="product.html" id="footer-p3">Most popular product</a>
+                    <a href="#top" id="top-btn">↑ Top</a>
+                    <p>&copy; Copyright 2026 Stowasserova</p>
+                </div>
+                <div class="line-between"></div>
+                <div>
+                    <p id="footer-p4">We are here for you</p>
+                    <a href="contact.html" id="footer-p5">Our Contact</a>
+                    <a href="form.html" id="footer-p6">Complaint</a>
+                </div>
+            </footer>
         </div>
-    </nav>
-    <header>
-        <div>
-            <h1>StoPruducts</h1>
-            <!--LANG EN-->
-            <h2 lang="en" class="current-lang">Hundreds of prouducts that everyone loves!</h2>
-            <!--LANG SK-->
-            <h2 lang="sk" class="hidden-lang">Stovky produktov ktoré každý miluje!</h2>
-            <!--LANG DE-->
-            <h2 lang="de" class="hidden-lang">Hunderte von Produkten, die jeder liebt!</h2>
-        </div>
-    </header>
-    <main>
-        <p>refer to complaint form!!</p>
-    </main>
-    <footer>
-        <img src="img/logo.svg" alt="Logo" class="logo">
-        <div>
-            <p id="footer-p1">Products everyone loves</p>
-            <a href="product_listing.html" id="footer-p2">Our products</a>
-            <a href="product.html" id="footer-p3">Most popular product</a>
-            <p>&copy; Copyright 2026 Stowasserova</p>
-        </div>
-        <div class="line-between"></div>
-        <div>
-            <p id="footer-p4">We are here for you</p>
-            <a href="contact.html" id="footer-p5">Our Contact</a>
-            <a href="form.html" id="footer-p6">Complaint</a>
-        </div>
-    </footer>
-</div>
-<script src="js/app.js"></script>
+    </div>
+    <script src="js/app.js"></script>
 </body>
 </html>
