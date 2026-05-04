@@ -22,11 +22,10 @@
 // });
 
 
-//ON START
+//THEME
 
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 const themeBTN = document.getElementById("change-theme");
-const form = document.getElementById("complaint-form");
 const container = document.getElementById("main-container");
 let theme;
 if (systemTheme.matches) {
@@ -47,7 +46,26 @@ if (localStorage.getItem("theme")) {
     }
 }
 
+themeBTN.addEventListener("click", () => {
+    changeTheme();
+});
 
+function changeTheme() {
+    const themeBTN = document.getElementById("change-theme");
+    if (container.classList.contains("light")) {
+        container.classList.replace("light", "dark");
+        themeBTN.textContent = "Light Theme";
+        localStorage.setItem("theme", "dark");
+    }
+    else {
+        container.classList.replace("dark", "light");
+        themeBTN.textContent = "Dark Theme";
+        localStorage.setItem("theme", "light");
+    }
+}
+
+
+//LANGUAGE
 let currentLang;
 if (!localStorage.getItem("lang")) {
     currentLang = "en";
@@ -64,15 +82,6 @@ else if (currentLang === "de") {
     setLang("de");
     setLangTextDE();
 }
-
-
-themeBTN.addEventListener("click", () => {
-    changeTheme();
-});
-
-
-//EVENT LISTENERS
-
 const enBTN = document.getElementById("lang-en");
 const skBTN = document.getElementById("lang-sk");
 const deBTN = document.getElementById("lang-de");
@@ -104,6 +113,10 @@ deBTN.addEventListener("click",  () => {
     setLangTextDE();
 });
 
+
+
+//FORM COMPLAINT
+const form = document.getElementById("complaint-form");
 if (form) {
     const submit = document.getElementById("complaint-submit");
     submit.addEventListener("click", (event) => {
@@ -203,6 +216,8 @@ if (form) {
         }
     });
 }
+
+//MODAL
 const aboutUs = document.getElementById("about-toggle");
 const aboutWindow = document.getElementById("about");
 const closeBTN = document.getElementById("close-btn");
@@ -225,8 +240,6 @@ if (aboutUs) {
     })
 }
 
-//FUNCTIONS
-
 function openAbout() {
     aboutWindow.style.display = "block";
     const blurBox = document.getElementById("blur-box");
@@ -239,24 +252,119 @@ function closeAbout() {
     blurBox.classList.remove("blur");
 }
 
-function fixedMenu() {
-    //
+//REVIWS -- JSON AND AJAX
+const product = document.querySelector(".product-large");
+if (product) {
+    document.addEventListener("DOMContentLoaded", async () => {
+        const state = document.querySelectorAll(".json-empty");
+        state.forEach((p) => {
+            p.textContent = "Loading...";
+        })
+        const table = document.getElementById("stats-table");
+        const filename = product.getAttribute("id");
+        fetch(`json/${filename}.json`)
+            .then(response => {
+                if (!response.ok) {
+                    state.forEach((p) => {
+                        p.textContent = "Couldn't retrieve data.";
+                    })
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                //CREATE REVIEWS
+                if (data["reviews"].length > 0) {
+                    state.forEach( (p) => {
+                        p.style.display = "none";
+                    })
+                    const review = document.getElementById("reviews");
+                    for (let i = 0; i < data["reviews"].length; i++) {
+                        createReview(review, data["reviews"][i], i);
+                    }
+                }
+                else {
+                    document.getElementById("rev-state").textContent = "No reviews have been submitted";
+                }
+                // FILL OUT TABLE
+                const tableHead = document.querySelectorAll(".table-heading");
+                const tableData = document.querySelectorAll(".table-data");
+                let i = 0;
+                Object.keys(data).forEach((key) => {
+                    if (key !== "reviews") {
+                        tableHead[i].textContent = key;
+                        tableData[i].textContent = data[key];
+                        i++;
+                    }
+                })
+            })
+            .catch(error => console.error('Failed to fetch data:', error));
+        table.classList.remove("invisible");
+    })
 }
 
-function changeTheme() {
-    const themeBTN = document.getElementById("change-theme");
-    if (container.classList.contains("light")) {
-        container.classList.replace("light", "dark");
-        themeBTN.textContent = "Light Theme";
-        localStorage.setItem("theme", "dark");
+function createReview(review, data, order) {
+    const rev = document.createElement("div");
+    rev.classList.add("review");
+    review.appendChild(rev);
+    const image = document.createElement("img");
+    image.src = "/img/profile-pic.png";
+    image.alt = "Profile Image";
+    rev.appendChild(image);
+    const values = ["Username:", "Rating:", "Comment:"];
+    const classes = ["rev-name-label", "rev-name", "rev-rating-label", "rev-rating", "rev-comment-label", "rev-comment"];
+    for (let i = 0; i < 6; i++) {
+        const p = document.createElement("p");
+        p.classList.add(classes[i]);
+        if (i%2 === 0) {
+            p.textContent = values[i/2];
+        }
+        else if (i === 1) {
+            p.textContent = data["name"];
+        }
+        else if (i === 3) {
+            let stars = "";
+            for (let i = 0; i < data["rating"]; i++) {
+                stars += "★";
+            }
+            for (let i = data["rating"]; i < 5; i++) {
+                stars += "☆";
+            }
+            p.textContent = stars;
+        }
+        else if (5){
+            p.textContent = data["comment"];
+            p.setAttribute("id", `comment${order}`);
+            p.classList.add("short-p");
+        }
+        rev.appendChild(p);
     }
-    else {
-        container.classList.replace("dark", "light");
-        themeBTN.textContent = "Dark Theme";
-        localStorage.setItem("theme", "light");
-    }
+    const a = document.createElement("a");
+    a.setAttribute("id", `show-more-comment${order}`);
+    a.textContent = "Show More...";
+    a.classList.add("show-more");
+    a.addEventListener("click", () => {
+        if (a.textContent === "Show More...") {
+            a.textContent = "Show Less...";
+            const comment = document.getElementById(`comment${order}`);
+            comment.classList.remove("short-p");
+        }
+        else {
+            a.textContent = "Show More...";
+            const comment = document.getElementById(`comment${order}`);
+            comment.classList.add("short-p");}
+    })
+    rev.appendChild(a);
 }
 
+
+// //SCROLL ANIMATIONS
+// function fixedMenu() {
+//     //
+// }
+
+
+// SET LANG FUNCTIONS -- long
 function setLang(lang) {
     document.querySelectorAll(".current-lang").forEach((el) => {
         el.classList.replace("current-lang", "hidden-lang");
