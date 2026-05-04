@@ -65,56 +65,6 @@ function changeTheme() {
 }
 
 
-//LANGUAGE
-let currentLang;
-if (!localStorage.getItem("lang")) {
-    currentLang = "en";
-}
-else {
-    currentLang = localStorage.getItem("lang");
-}
-console.log(currentLang);
-if (currentLang === "sk") {
-    setLang("sk");
-    setLangTextSK();
-}
-else if (currentLang === "de") {
-    setLang("de");
-    setLangTextDE();
-}
-const enBTN = document.getElementById("lang-en");
-const skBTN = document.getElementById("lang-sk");
-const deBTN = document.getElementById("lang-de");
-enBTN.addEventListener("click",  () => {
-    if (currentLang === "en") {
-        console.log("Language already set.");
-        return;
-    }
-    setLang("en");
-    setLangTextEN();
-});
-
-skBTN.addEventListener("click",  () => {
-    if (currentLang === "sk") {
-        console.log("Language already set.");
-        return;
-    }
-    setLang("sk");
-    setLangTextSK();
-});
-
-deBTN.addEventListener("click",  () => {
-    if (currentLang === "de") {
-        console.log("Language already set.");
-        return;
-    }
-    alert("Nemčina bola preložená iba cez online prekladače!\n\nGerman was translated only with the use of online translators!\n\nDie deutsche Übersetzung erfolgte ausschließlich mithilfe von Online-Übersetzern!");
-    setLang("de");
-    setLangTextDE();
-});
-
-
-
 //FORM COMPLAINT
 const form = document.getElementById("complaint-form");
 if (form) {
@@ -364,7 +314,65 @@ function createReview(review, data, order) {
 // }
 
 
-// SET LANG FUNCTIONS -- long
+//LANGUAGE
+let currentLang;
+if (!localStorage.getItem("lang")) {
+    currentLang = "en";
+}
+else {
+    currentLang = localStorage.getItem("lang");
+}
+console.log(currentLang);
+if (currentLang === "sk") {
+    setLang("sk");
+    setLangTextSK();
+}
+else if (currentLang === "de") {
+    setLang("de");
+    setLangTextDE();
+}
+const enBTN = document.getElementById("lang-en");
+const skBTN = document.getElementById("lang-sk");
+const deBTN = document.getElementById("lang-de");
+enBTN.addEventListener("click",  () => {
+    if (currentLang === "en") {
+        console.log("Language already set.");
+        return;
+    }
+    setLang("en");
+    setLangTextEN();
+});
+
+skBTN.addEventListener("click",  () => {
+    if (currentLang === "sk") {
+        console.log("Language already set.");
+        return;
+    }
+    setLang("sk");
+    setLangTextSK();
+});
+
+deBTN.addEventListener("click",  () => {
+    if (currentLang === "de") {
+        console.log("Language already set.");
+        return;
+    }
+    let choice = localStorage.getItem("de-choice");
+    console.log(choice);
+    if (!choice) {
+        const proceed = confirm("German was translated only with the use of online translators! Do you wish to continue?\n\nNemčina bola preložená iba cez online prekladače! Chcete pokračovať?\n\nDie deutsche Übersetzung erfolgte ausschließlich mithilfe von Online-Übersetzern! Möchten Sie fortfahren?");
+        if (proceed === true) {
+            localStorage.setItem("de-choice", "true");
+            setLang("de");
+            setLangTextDE();
+        }
+    }
+    else {
+        setLang("de");
+        setLangTextDE();
+    }
+});
+
 function setLang(lang) {
     document.querySelectorAll(".current-lang").forEach((el) => {
         el.classList.replace("current-lang", "hidden-lang");

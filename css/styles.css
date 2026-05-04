@@ -540,6 +540,7 @@ main h2 {
         border-spacing: 0;
         height: 1rem;
         text-align: center;
+        color: rgb(var(--text-color));
         th {
             padding: 0.5rem;
             border-top: 2px solid;
