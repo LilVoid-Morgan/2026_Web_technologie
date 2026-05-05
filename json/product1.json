@@ -1,0 +1,36 @@
+{
+  "reviews":
+  [
+    {
+      "name": "MDrobny",
+      "rating": 3,
+      "comment": "Nam elementum neque et tellus egestas porttitor. Integer malesuada sodales sapien, non sagittis sapien elementum et. Vivamus suscipit rhoncus ipsum in congue. Duis mauris nisl, pharetra auctor congue a, pharetra ac sem. Aenean congue dui in velit accumsan dictum. In eu malesuada lacus. Duis ut suscipit tortor. Aenean lacinia nisi eget convallis pretium. Vivamus gravida, ex sit amet consequat porttitor, lorem dolor mollis turpis, vitae molestie nisi justo a ligula. In nec varius est. "
+    },
+    {
+      "name": "Morgan",
+      "rating": 5,
+      "comment": "5.0 out of 5 stars – Incredible Value! Almost gives my Beats a run for their money!\n\nI can't gate keep any longer! I am absolutely blown away by these BERIBES headphones! I’ll be honest: I used a pair of Beats Pro for two years, so my standards for audio are pretty high. While these aren't 100% identical to the $200+ flagship brands, for this price point, they are definitely in the race!\n\nHere is why I love them:\n\nInsane Battery Life: The 65-hour playtime is no joke. I feel like I rarely have to charge them, which is a huge upgrade from my previous sets. When I do charge them, they charge fairly quickly (about 1 hour to full charge).\n\nCustom Sound: Having 6 EQ modes is a game-changer. Whether I’m listening to a podcast or bass-heavy music, I can actually tune the headphones to match the vibe from Rock, Vocal, Jazz, Bass, Classic, or Pop. As a graduate student, I listen to a lot of binaural sounds and music as I study. These headphones can handle to different frequencies in each ear that binaural requires. They also cancel out pretty much all background noise, even though they do not advertise that\n\nComfort: They are super lightweight and comfortable for long sessions. The deep cup fits over my ear so well, there is never fabric touching my actual skin. My ears do not get irritated or sweaty during long-term use, and they are comfortable enough for falling asleep while wearing! The also swivel, and fold up for travel. They actually fit in my old Beats case!\n\nConnectivity and ease of set up: Honestly, this is where they blow Beats out of the water. The initial pair was an instant piece of cake. They connect by bluetooth and I never have problems with them being dropped from my phone. If I need to switch between devices for some reason, they never give me a hard time.\n\nThe Price Point: You honestly cannot beat the quality you get for what you pay. If you want high-end sound and superior functionality without the \"luxury\" price tag, these are the ones to get. I had someone tell me that on a call, they sound better than my Beats and picked up less background sound!\n\nIf you’re looking for a reliable, great-sounding pair of headphones and don't want to break the bank, look no further. Highly highly HIGHLY recommended!"
+    },
+    {
+      "name": "ForeverHater",
+      "rating": 1,
+      "comment": "no stay forever hateful"
+    }
+  ],
+  "brand-name": "STOPHONES",
+  "model-number": "WH202A",
+  "model-name": "WH",
+  "built-in": "Blu-ray",
+  "age-min": 13,
+  "warranty": true,
+  "series-number": "201",
+  "manufacturer": "StoProducts",
+  "item-type": "Bluetooth Wireless Headphones Over Ear ",
+  "battery-life": 60,
+  "battery-charge": 2.5,
+  "color": "Black & Rose Gold",
+  "style": "Over Ear",
+  "case-color": "Rose Gold",
+  "theme": "Music, Call and others",
+  "material": "plastic"
+}
