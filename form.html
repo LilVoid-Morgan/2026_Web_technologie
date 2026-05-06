@@ -14,9 +14,17 @@
         <nav>
             <img src="img/logo.svg" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="index.html" id="main-page">Main Page</a>
-                <a href="contact.html" id="contact">Contact</a>
-                <a href="product_listing.html"  id="list">List of Products</a>
+                <a href="index.html" id="main-page" class="nav-links-a">Main Page</a>
+                <a href="contact.html" id="contact" class="nav-links-a">Contact</a>
+                <a href="product_listing.html"  id="list" class="nav-links-a">List of Products</a>
+            </div>
+            <div class="dropdown">
+                <a id="complaint-phone" class="nav-links-a">Complaint Form</a>
+                <div class="dropdown-content nav-links-phone">
+                    <a href="index.html" id="main-page-phone" class="nav-links-a">Main Page</a>
+                    <a href="contact.html" id="contact-phone" class="nav-links-a">Contact</a>
+                    <a href="product_listing.html"  id="list-phone" class="nav-links-a">List of Products</a>
+                </div>
             </div>
             <div class="change-container">
                 <button id="change-theme" class="change">Dark Theme</button>
@@ -42,7 +50,7 @@
             </div>
         </header>
         <main>
-            <p class="back-btn"><a href="contact.html" class="back-btn"><< Contact</a></p>
+            <p class="back-btn"><a href="contact.html"><< Contact</a></p>
             <div class="info-content forward">
                 <section class="info">
                     <h2 id="complaint-h2">Submit a Complaint</h2>
@@ -312,12 +320,18 @@
                         <input id="image" name="image" type="file">
                         <label id="action">Preferred Course of Action *</label>
                         <div>
-                            <input id="return" name="action" type="radio">
-                            <label for="return" id="return-label">Return</label>
-                            <input id="replace" name="action" type="radio">
-                            <label for="replace" id="replace-label">Replace</label>
-                            <input id="refund" name="action" type="radio">
-                            <label for="refund" id="refund-label">Refund</label>
+                            <div>
+                                <input id="return" name="action" type="radio">
+                                <label for="return" id="return-label">Return</label>
+                            </div>
+                            <div>
+                                <input id="replace" name="action" type="radio">
+                                <label for="replace" id="replace-label">Replace</label>
+                            </div>
+                            <div>
+                                <input id="refund" name="action" type="radio">
+                                <label for="refund" id="refund-label">Refund</label>
+                            </div>
                         </div>
                         <label for="comment" id="comment-label">Additional Comments</label>
                         <textarea id="comment"></textarea>

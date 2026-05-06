@@ -386,9 +386,9 @@ function setLang(lang) {
 }
 
 function setLangTextEN() {
-    document.getElementById("main-page").textContent = "Main Page";
-    document.getElementById("contact").textContent = "Contact";
-    document.getElementById("list").textContent = "List of Products";
+    document.getElementById("main-page-pc").textContent = "Main Page";
+    document.getElementById("contact-pc").textContent = "Contact";
+    document.getElementById("list-pc").textContent = "List of Products";
     if (theme === "dark") {
         document.getElementById("change-theme").textContent = "Light Theme";
     }
@@ -448,9 +448,9 @@ function setLangTextEN() {
     }
 }
 function setLangTextSK() {
-    document.getElementById("main-page").textContent = "Hlavná Stránka";
-    document.getElementById("contact").textContent = "Kontakt";
-    document.getElementById("list").textContent = "Zoznam Produktov";
+    document.getElementById("main-page-pc").textContent = "Hlavná Stránka";
+    document.getElementById("contact-pc").textContent = "Kontakt";
+    document.getElementById("list-pc").textContent = "Zoznam Produktov";
     if (theme === "dark") {
         document.getElementById("change-theme").textContent = "Bledá Téma";
     }
@@ -510,9 +510,9 @@ function setLangTextSK() {
     }
 }
 function setLangTextDE() {
-    document.getElementById("main-page").textContent = "Die Startseite";
-    document.getElementById("contact").textContent = "Der Kontakt";
-    document.getElementById("list").textContent = "Die Produktliste";
+    document.getElementById("main-page-pc").textContent = "Die Startseite";
+    document.getElementById("contact-pc").textContent = "Der Kontakt";
+    document.getElementById("list-pc").textContent = "Die Produktliste";
     if (theme === "dark") {
         document.getElementById("change-theme").textContent = "Helles Thema";
     }

@@ -14,9 +14,17 @@
         <nav>
             <img src="img/logo.svg" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="index.html" id="main-page">Main Page</a>
-                <a href="contact.html" id="contact">Contact</a>
-                <a href="product_listing.html"  id="list">List of Products</a>
+                <a href="index.html" id="main-page" class="nav-links-a">Main Page</a>
+                <a href="contact.html" id="contact" class="nav-links-a">Contact</a>
+                <a href="product_listing.html"  id="list" class="nav-links-a">List of Products</a>
+            </div>
+            <div class="dropdown">
+                <a id="product-phone" class="nav-links-a">Product Page</a>
+                <div class="dropdown-content nav-links-phone">
+                    <a href="index.html" id="main-page-phone" class="nav-links-a">Main Page</a>
+                    <a href="contact.html" id="contact-phone" class="nav-links-a">Contact</a>
+                    <a href="product_listing.html"  id="list-phone" class="nav-links-a">List of Products</a>
+                </div>
             </div>
             <div class="change-container">
                 <button id="change-theme" class="change">Dark Theme</button>
@@ -46,7 +54,7 @@
             <div id="product1" class="product-large sunken">
                 <h2>Most Popular Product</h2>
                 <a href="gallery.html">
-                    <img src="img/product-large.png" alt="Product Large">
+                    <img src="img/product-large.png" alt="Product Image">
                 </a>
                 <div id="summary">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus sit amet odio vel interdum. Integer ultrices magna arcu, id lobortis libero aliquet nec. Curabitur lectus ante, laoreet quis nisi nec, pellentesque mollis ex. Nullam nec dolor placerat, finibus nunc in, ultrices erat. Aenean vitae libero tortor. Praesent a porta justo. Nunc quis quam non metus dictum congue. Donec consequat est ac aliquet dignissim. Aenean fringilla arcu dolor, at fringilla augue scelerisque convallis. Vivamus in iaculis velit, at vehicula leo. Pellentesque fermentum dui ligula, non iaculis metus ornare quis. Nulla consectetur sollicitudin ante nec ullamcorper. Nam fermentum nibh id enim molestie, vel elementum neque viverra. Sed lacinia, sem vitae commodo molestie, sem libero auctor neque, ac sollicitudin ligula libero ac ex. Nullam ultrices porttitor eros. Phasellus condimentum euismod leo, id sodales nibh posuere a.</p>
@@ -120,7 +128,6 @@
                         <td class="table-data"></td>
                     </tr>
                 </table>
-
                 <div id="reviews">
                     <h2>Reviews</h2>
                     <div class="horizon-line"></div>
